@@ -1,64 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp">
-    <!-- Add Space View to add vertical space before form -->
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="50dp" /> <!-- Adjust the height to control space -->
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/nameInput"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:hint="Name" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation">
 
-    <EditText
-        android:id="@+id/addressInput"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:hint="Address" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/descriptionInput"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:hint="Description" />
+            <!-- Space before form -->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
 
-    <EditText
-        android:id="@+id/sqMetersInput"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:hint="Square Meters"
-        android:inputType="number" />
+            <EditText
+                android:id="@+id/nameInput"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:hint="Name" />
 
-    <EditText
-        android:id="@+id/priceInput"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:hint="Price"
-        android:inputType="numberDecimal" />
+            <EditText
+                android:id="@+id/addressInput"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:hint="Address" />
 
-    <EditText
-        android:id="@+id/phoneInput"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:hint="Phone Number"
-        android:inputType="phone" />
+            <EditText
+                android:id="@+id/descriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:hint="Description" />
 
-    <EditText
-        android:id="@+id/yearBuiltInput"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:hint="Year Built"
-        android:inputType="number" />
+            <EditText
+                android:id="@+id/sqMetersInput"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:hint="Square Meters"
+                android:inputType="number" />
 
-    <Button
-        android:id="@+id/submitButton"
+            <EditText
+                android:id="@+id/priceInput"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:hint="Price"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/phoneInput"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:hint="Phone Number"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/yearBuiltInput"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:hint="Year Built"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit" />
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/menu_bottom_nav" />
 
-</LinearLayout>
+</RelativeLayout>
+

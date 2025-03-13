@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity { // Change AppCompatActivity → BaseActivity
 
     private RecyclerView recyclerView;
     private ListingAdapter adapter;
@@ -26,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setupBottomNavigation(); // Call this to set up the navigation bar
+        getCurrentActivity();
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -36,10 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper = new HouseListingDb(this);
 
-        // Load listings from database
-        loadListings();
+        loadListings(); // Load listings from database
 
-        // Floating button to open AddListingActivity
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, AddListingActivity.class);
